@@ -1,0 +1,397 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#confetti{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:3;
+}
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh); }
+}
+
+
+
+body {
+  background: #ffc0cb;
+}
+
+#cake {
+  display: block;
+  position: relative;
+  margin: -10em auto 0 auto;
+}
+
+.candle {
+  background: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 228px;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -8.33333333px;
+  width: 10px;
+  height: 70px;
+  transform: translateY(-300px);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-animation: in 500ms 6s ease-out forwards;
+          animation: in 500ms 6s ease-out forwards;
+}
+
+.candle:after,
+.candle:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.22222222px;
+}
+
+.candle:after {
+  top: 15%;
+  left: 0;
+}
+
+.candle:before {
+  top: 45%;
+  left: 0;
+}
+
+.fire {
+  border-radius: 100%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -2.6px;
+  width: 6.66666667px;
+  height: 18px;
+}
+
+.fire:nth-child(1) {
+  -webkit-animation: fire 2s 6.5s infinite;
+          animation: fire 2s 6.5s infinite;
+}
+
+.fire:nth-child(2) {
+  -webkit-animation: fire 1.5s 6.5s infinite;
+          animation: fire 1.5s 6.5s infinite;
+}
+
+.fire:nth-child(3) {
+  -webkit-animation: fire 1s 6.5s infinite;
+          animation: fire 1s 6.5s infinite;
+}
+
+.fire:nth-child(4) {
+  -webkit-animation: fire 0.5s 6.5s infinite;
+          animation: fire 0.5s 6.5s infinite;
+}
+
+.fire:nth-child(5) {
+  -webkit-animation: fire 0.2s 6.5s infinite;
+          animation: fire 0.2s 6.5s infinite;
+}
+
+@-webkit-keyframes fire {
+  0%, 100% {
+    background: rgba(254, 248, 97, 0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    transform: translateY(-20px) scale(0);
+  }
+}
+@keyframes fire {
+  0%, 100% {
+    background: rgba(254, 248, 97, 0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    transform: translateY(-20px) scale(0);
+  }
+}
+@-webkit-keyframes in {
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes in {
+  to {
+    transform: translateY(0);
+  }
+}
+.text {
+  margin-top: 25px;           /* space below cake */
+  text-align: center;
+}
+
+.text h1 {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 3rem;            /* 🔥 CHANGE SIZE HERE */
+  color: red;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid red;
+  display: inline-block;
+}
+
+.typewriter {
+  animation:
+    typing 2s steps(30, end) forwards,
+    blink .7s infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Cursor blink */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(110vh) rotate(360deg); }
+}
+
+
+/* Boton*/
+
+/* Contenedor del botón para asegurar el centrado total */
+#wrapper-boton {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente si hubiera espacio */
+    width: 100%;
+    margin-top: 20px;        /* Espacio debajo del pastel */
+    margin-bottom: 20px;
+}
+
+/* El botón con su estado inicial y animación */
+.boton-oculto {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in, transform 0.3s ease;
+    padding: 15px 30px;
+    background: #f7a8b8;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(247, 168, 184, 0.4);
+}
+
+/* Clase que activa el JS al final del pastel */
+.boton-visible {
+    opacity: 1;
+    pointer-events: auto;
+    animation: latido 2s infinite; /* Efecto de latido para llamar la atención */
+}
+
+/* Animación de latido */
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Hover para que cambie de color al pasar el mouse */
+.boton-visible:hover {
+    background: #f5879b;
+    transform: scale(1.1);
+}
+
+.seccion-oculta {
+    display: none; /* Se mantiene oculto al inicio */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;   /* 100% del ancho de la pantalla */
+    height: 100vh;  /* 100% del alto de la pantalla */
+    background-color: #ffb3c1; /* O el color rosa de tu fondo para que combine */
+    z-index: 9999;  /* Un número muy alto para que esté por encima de TODO */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto; /* Por si el texto es muy largo en celulares */
+    padding: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+    max-width: 500px;
+    border: 5px solid #f7a8b8; /* Un borde rosa lindo */
+}
+
+.tarjeta h1 {
+    color: #d63384;
+    font-family: 'Dancing Script', cursive; /* O una fuente cursiva que te guste */
+    margin-bottom: 20px;
+}
+
+.tarjeta p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 25px;
+}
+
+/* Contenedor del párrafo para la pluma */
+.tarjeta p {
+    position: relative;
+    display: inline-block; /* Necesario para que el cursor pegue al texto */
+    text-align: left;      /* Se ve mejor para el efecto de escritura */
+    min-height: 100px;
+}
+
+/* El cursor de pluma */
+.escribiendo::after {
+    content: "✒️";         /* Emoji de pluma */
+    position: absolute;
+    font-size: 1.5rem;
+    margin-left: 5px;
+    animation: flotarPluma 0.8s infinite alternate;
+}
+
+/* Animación para que la pluma se mueva un poquito al escribir */
+@keyframes flotarPluma {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(-5px) rotate(15deg); }
+}
+
+/* Opcional: Fuente más elegante para la carta */
+.tarjeta p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+/* Contenedor del párrafo para la pluma */
+.tarjeta p {
+    position: relative;
+    display: inline-block; /* Necesario para que el cursor pegue al texto */
+    text-align: left;      /* Se ve mejor para el efecto de escritura */
+    min-height: 100px;
+}
+
+/* El cursor de pluma */
+.escribiendo::after {
+    content: "✒️";         /* Emoji de pluma */
+    position: absolute;
+    font-size: 1.5rem;
+    margin-left: 5px;
+    animation: flotarPluma 0.8s infinite alternate;
+}
+
+/* Animación para que la pluma se mueva un poquito al escribir */
+@keyframes flotarPluma {
+    from { transform: translateY(0) rotate(0deg); }
+    to { transform: translateY(-5px) rotate(15deg); }
+}
+
+/* Opcional: Fuente más elegante para la carta */
+.tarjeta p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+}
+
+/* Reproductor Discreto y Azul */
+.contenedor-musica {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Al lado derecho, fuera de la carta */
+    opacity: 0.3; /* Muy discreto */
+    transition: opacity 0.3s;
+    z-index: 10000;
+}
+
+.contenedor-musica:hover {
+    opacity: 1; /* Se ve claro si pasas el mouse */
+}
+
+/* Estilo azul para el reproductor (en navegadores modernos) */
+audio::-webkit-media-controls-enclosure {
+    background-color: #a2d2ff; /* Azul pastel */
+}
+
+/* Estilo del Beso */
+#beso-final {
+    display: none; /* Empieza oculto */
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.beso-estampado {
+    font-size: 50px;
+    animation: stamp 0.5s cubic-bezier(.17,.89,.32,1.28) forwards;
+}
+
+@keyframes stamp {
+    0% { transform: scale(5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Botón Regresar fuera de la carta */
+.btn-regresar-fuera {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(162, 210, 255, 0.4); /* Azul muy suave y transparente */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 10001; /* Por encima de todo */
+    backdrop-filter: blur(5px); /* Efecto de vidrio empañado */
+}
+
+.btn-regresar-fuera:hover {
+    background: rgba(162, 210, 255, 1); /* Se vuelve sólido al pasar el mouse */
+    transform: scale(1.1);
+}
+
+/* Ajuste a la tarjeta para que se vea más como una carta limpia */
+.tarjeta {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 600px;
+    text-align: center;
+    border: none; /* Quitamos el borde para que se vea más elegante */
+    position: relative;
+}
