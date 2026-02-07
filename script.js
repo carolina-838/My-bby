@@ -85,7 +85,7 @@ document.getElementById('btn-magico').onclick = function() {
 
     // 4. Lógica de Máquina de Escribir
     const parrafo = document.querySelector('.tarjeta p');
-    const textoOriginal = parrafo.innerHTML; // Guardamos el texto 
+   const textoOriginal = parrafo.innerText; // Guardamos el texto 
     parrafo.innerHTML = ""; // Limpiamos para empezar a escribir
     parrafo.classList.add('escribiendo'); // Activamos la pluma
 
