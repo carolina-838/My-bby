@@ -106,7 +106,6 @@ document.getElementById('btn-magico').onclick = function() {
 
 
 
-
 // Función para regresar 
 function cerrar() {
     // Mostramos todo de nuevo
