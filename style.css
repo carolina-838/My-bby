@@ -290,6 +290,7 @@ body {
     to { transform: translateY(-5px) rotate(15deg); }
 }
 
+
 .tarjeta p {
     font-family: 'Georgia', serif;
     font-style: italic;
