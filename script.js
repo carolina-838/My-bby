@@ -81,8 +81,6 @@ document.getElementById('btn-magico').onclick = function() {
     const pantalla = document.getElementById('pantalla-dedicatoria');
     pantalla.style.display = 'flex';
     
-    // 3. Reproducimos la música
-    document.getElementById('musica').play();
 
 
     // 4. Lógica de Máquina de Escribir
